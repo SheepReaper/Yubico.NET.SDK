@@ -21,7 +21,7 @@ namespace Yubico.YubiKey
 {
     internal class KeyboardConnection : IYubiKeyConnection
     {
-        private readonly IApduTransform _apduPipeline;
+        private readonly OtpErrorTransform _apduPipeline;
         private readonly IHidConnection _hidConnection;
         private readonly KeyboardTransform _kb;
         private bool _disposedValue;

@@ -23,6 +23,7 @@ namespace Yubico.YubiKey.TestApp.Plugins
 {
     internal class HidCodeTablePlugin : PluginBase
     {
+        private static readonly char[] lcidSeparators = [ ' ', ',', ':', ';', '/', '+' ];
         public override string Name => "HidCodeTableGenerator";
 
         public override string Description =>
@@ -101,7 +102,7 @@ namespace Yubico.YubiKey.TestApp.Plugins
         public static IEnumerable<string> ParseStringCollection(string s)
             =>
             s.Split(
-                new[] { ' ', ',', ':', ';', '/', '+' })
+                lcidSeparators)
                 .Where(s => !string.IsNullOrWhiteSpace(s))
                 .Select(s => s.ToUpper());
 

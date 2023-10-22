@@ -56,10 +56,7 @@ namespace Yubico.YubiKey.Sample.Fido2SampleCode
         // does not require a KeyCollector, this sample code does.
         public ResponseStatus RunFido2Reset(Func<KeyEntryData, bool> KeyCollector)
         {
-            if (KeyCollector is null)
-            {
-                throw new ArgumentNullException(nameof(KeyCollector));
-            }
+            ArgumentNullException.ThrowIfNull(KeyCollector);
 
             _yubiKeyDevice = null;
             _keyEntryData.Request = KeyEntryRequest.Release;

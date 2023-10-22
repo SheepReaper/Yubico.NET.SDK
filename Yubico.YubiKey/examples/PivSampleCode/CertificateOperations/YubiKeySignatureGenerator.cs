@@ -53,14 +53,8 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
             PivPublicKey pivPublicKey,
             RSASignaturePaddingMode rsaPaddingMode = RSASignaturePaddingMode.Pss)
         {
-            if (pivSession is null)
-            {
-                throw new ArgumentNullException(nameof(pivSession));
-            }
-            if (pivPublicKey is null)
-            {
-                throw new ArgumentNullException(nameof(pivPublicKey));
-            }
+            ArgumentNullException.ThrowIfNull(pivSession);
+            ArgumentNullException.ThrowIfNull(pivPublicKey);
             if (!PivSlot.IsValidSlotNumberForSigning(slotNumber))
             {
                 throw new ArgumentException(
@@ -115,10 +109,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
         // YubiKey signing operation.
         public override byte[] SignData(byte[] data, HashAlgorithmName hashAlgorithm)
         {
-            if (data is null)
-            {
-                throw new ArgumentNullException(nameof(data));
-            }
+            ArgumentNullException.ThrowIfNull(data);
 
             byte[] dataToSign = DigestData(data, hashAlgorithm);
 

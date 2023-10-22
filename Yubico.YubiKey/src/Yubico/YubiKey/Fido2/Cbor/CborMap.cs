@@ -25,7 +25,7 @@ namespace Yubico.YubiKey.Fido2.Cbor
     /// </summary>
     internal class CborMap<TKey>
     {
-        private readonly IDictionary<TKey, object?> _dict;
+        private readonly Dictionary<TKey, object?> _dict;
 
         /// <summary>
         /// The number of key/value pairs in this map.
@@ -170,12 +170,12 @@ namespace Yubico.YubiKey.Fido2.Cbor
         /// </summary>
         public object? ReadOptional<T>(TKey key)
         {
-            if (!_dict.ContainsKey(key))
+            if (!_dict.TryGetValue(key, out object? value))
             {
                 return null;
             }
 
-            return ConvertValue<T>(_dict[key]);
+            return ConvertValue<T>(value);
         }
 
         // If the value is a T, return it.
@@ -422,7 +422,7 @@ namespace Yubico.YubiKey.Fido2.Cbor
             return null;
         }
 
-        private static object? ProcessArray(CborReader cbor)
+        private static List<object?>? ProcessArray(CborReader cbor)
         {
             int? entryCount = cbor.ReadStartArray();
             int count = entryCount ?? 0;

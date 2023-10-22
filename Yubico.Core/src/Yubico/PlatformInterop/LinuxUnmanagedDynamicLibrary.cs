@@ -27,7 +27,7 @@ namespace Yubico.PlatformInterop
 
         }
 
-        private static SafeLibraryHandle OpenLibrary(string fileName)
+        private static SafeLinuxLibraryHandle OpenLibrary(string fileName)
         {
             SafeLinuxLibraryHandle handle = NativeMethods.linux_dlopen(fileName, NativeMethods.DlOpenFlags.Lazy);
             if (handle.IsInvalid)

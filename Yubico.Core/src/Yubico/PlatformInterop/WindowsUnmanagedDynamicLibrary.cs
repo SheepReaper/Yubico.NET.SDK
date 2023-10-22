@@ -25,7 +25,7 @@ namespace Yubico.PlatformInterop
 
         }
 
-        private static SafeLibraryHandle OpenLibrary(string fileName)
+        private static SafeWindowsLibraryHandle OpenLibrary(string fileName)
         {
             SafeWindowsLibraryHandle handle = NativeMethods.LoadLibraryEx(fileName, IntPtr.Zero, 0);
             if (handle.IsInvalid)

@@ -18,6 +18,7 @@ using Yubico.YubiKey.Sample.SharedCode;
 using Yubico.YubiKey.Piv;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
+using System.Globalization;
 
 namespace Yubico.YubiKey.Sample.PivSampleCode
 {
@@ -141,7 +142,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
                     return true;
                 }
 
-                string retryString = retriesRemaining is null ? "(unknown)" : retriesRemaining.ToString();
+                string retryString = retriesRemaining is null ? "(unknown)" : retriesRemaining.Value.ToString(CultureInfo.InvariantCulture);
                 SampleMenu.WriteMessage(MessageType.Title, 0, "\nWrong PIN, retries remaining: " + retryString);
                 string[] menuItems = new string[] {
                     "yes",

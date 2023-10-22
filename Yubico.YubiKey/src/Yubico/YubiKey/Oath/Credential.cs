@@ -20,6 +20,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using Yubico.Core.Extensions;
 using static System.Convert;
 
 namespace Yubico.YubiKey.Oath
@@ -588,7 +589,7 @@ namespace Yubico.YubiKey.Oath
         /// </returns>
         private static (string? issuer, string account) ParseUriPath(string path, string? defaultIssuer)
         {
-            string tempPath = path.StartsWith("/", true, CultureInfo.InvariantCulture) ? path.Substring(1) : path;
+            string tempPath = path.StartsWith('/') ? path.Substring(1) : path;
 
             if (tempPath.Length > MaximumUrlLength)
             {

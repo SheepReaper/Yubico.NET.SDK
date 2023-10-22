@@ -27,10 +27,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
         // Build a PivPublicKey object from an AsymmetricAlgorithm object.
         public static PivPublicKey GetPivPublicKeyFromDotNet(AsymmetricAlgorithm dotNetObject)
         {
-            if (dotNetObject is null)
-            {
-                throw new ArgumentNullException(nameof(dotNetObject));
-            }
+            ArgumentNullException.ThrowIfNull(dotNetObject);
 
             // Look at the SignatureAlgorithm property. If it is "RSA", we can
             // cast the input to RSA.
@@ -79,10 +76,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
         // PivPublicKey.
         public static AsymmetricAlgorithm GetDotNetFromPivPublicKey(PivPublicKey pivPublicKey)
         {
-            if (pivPublicKey is null)
-            {
-                throw new ArgumentNullException(nameof(pivPublicKey));
-            }
+            ArgumentNullException.ThrowIfNull(pivPublicKey);
 
             if (pivPublicKey.Algorithm.IsRsa())
             {
@@ -126,10 +120,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
         // contains a private key.
         public static PivPrivateKey GetPivPrivateKeyFromDotNet(AsymmetricAlgorithm dotNetObject)
         {
-            if (dotNetObject is null)
-            {
-                throw new ArgumentNullException(nameof(dotNetObject));
-            }
+            ArgumentNullException.ThrowIfNull(dotNetObject);
 
             var rsaParams = new RSAParameters();
             var eccParams = new ECParameters();

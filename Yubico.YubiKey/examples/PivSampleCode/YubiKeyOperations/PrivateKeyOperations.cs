@@ -33,10 +33,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
             PivAlgorithm keyAlgorithm,
             out byte[] signature)
         {
-            if (paddingScheme is null)
-            {
-                throw new ArgumentNullException(nameof(paddingScheme));
-            }
+            ArgumentNullException.ThrowIfNull(paddingScheme);
 
             signature = Array.Empty<byte>();
             int keySizeBits = keyAlgorithm.KeySizeBits();
@@ -112,10 +109,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
             RSAEncryptionPadding paddingScheme,
             out byte[] decryptedData)
         {
-            if (paddingScheme is null)
-            {
-                throw new ArgumentNullException(nameof(paddingScheme));
-            }
+            ArgumentNullException.ThrowIfNull(paddingScheme);
 
             decryptedData = Array.Empty<byte>();
             bool isValid;

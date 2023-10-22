@@ -51,10 +51,7 @@ namespace Yubico.YubiKey.Sample.Fido2SampleCode
             byte[] credBlobData,
             out MakeCredentialData makeCredentialData)
         {
-            if (credBlobData is null)
-            {
-                throw new ArgumentNullException(nameof(credBlobData));
-            }
+            ArgumentNullException.ThrowIfNull(credBlobData);
 
             var relyingParty = new RelyingParty(relyingPartyId)
             {
@@ -283,10 +280,7 @@ namespace Yubico.YubiKey.Sample.Fido2SampleCode
             ReadOnlyMemory<byte> largeBlobKey,
             out int entryIndex)
         {
-            if (blobArray is null)
-            {
-                throw new ArgumentNullException(nameof(blobArray));
-            }
+            ArgumentNullException.ThrowIfNull(blobArray);
 
             Memory<byte> plaintext = Memory<byte>.Empty;
             byte[] plainArray = Array.Empty<byte>();

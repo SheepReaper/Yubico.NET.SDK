@@ -18,6 +18,7 @@ using Yubico.YubiKey.Sample.SharedCode;
 using Yubico.YubiKey.U2f;
 using Yubico.YubiKey.Cryptography;
 using System.Security.Cryptography;
+using System.Globalization;
 
 namespace Yubico.YubiKey.Sample.U2fSampleCode
 {
@@ -334,7 +335,7 @@ namespace Yubico.YubiKey.Sample.U2fSampleCode
             }
             else
             {
-                SampleMenu.WriteMessage(MessageType.Title, 0, serial.ToString() + " : version = " + versionNumber);
+                SampleMenu.WriteMessage(MessageType.Title, 0, serial.Value.ToString(CultureInfo.InvariantCulture) + " : version = " + versionNumber);
             }
 
             response = _menuObject.RunMenu("\nIs this correct?", menuItems);

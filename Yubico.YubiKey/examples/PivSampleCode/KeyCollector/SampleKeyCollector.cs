@@ -31,10 +31,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
 
         public SampleKeyCollector(SampleMenu menuObject)
         {
-            if (menuObject is null)
-            {
-                throw new ArgumentNullException(nameof(menuObject));
-            }
+            ArgumentNullException.ThrowIfNull(menuObject);
 
             _menuObject = menuObject;
         }

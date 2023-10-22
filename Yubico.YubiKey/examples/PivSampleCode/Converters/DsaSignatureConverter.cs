@@ -69,10 +69,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
         // TripleDes), the method will throw an exception.
         public static byte[] GetNonStandardDsaFromStandard(byte[] signature, PivAlgorithm algorithm)
         {
-            if (signature is null)
-            {
-                throw new ArgumentNullException(nameof(signature));
-            }
+            ArgumentNullException.ThrowIfNull(signature);
 
             int elementLength = algorithm switch
             {

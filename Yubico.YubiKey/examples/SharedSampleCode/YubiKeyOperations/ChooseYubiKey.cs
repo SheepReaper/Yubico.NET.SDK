@@ -51,10 +51,7 @@ namespace Yubico.YubiKey.Sample.SharedCode
             Transport transport,
             ref IYubiKeyDevice? yubiKeyChosen)
         {
-            if (menuObject is null)
-            {
-                throw new ArgumentNullException(nameof(menuObject));
-            }
+            ArgumentNullException.ThrowIfNull(menuObject);
 
             // Find all currently connected YubiKeys.
             IEnumerable<IYubiKeyDevice> yubiKeyEnumerable = YubiKeyDevice.FindByTransport(transport);
@@ -107,7 +104,7 @@ namespace Yubico.YubiKey.Sample.SharedCode
             for (int index = 0; index < yubiKeyArray.Length; index++)
             {
                 string versionNumber = yubiKeyArray[index].FirmwareVersion.ToString();
-                string serialNumber = yubiKeyArray[index].SerialNumber.ToString() ?? "No serial number";
+                string serialNumber = yubiKeyArray[index].SerialNumber?.ToString(CultureInfo.InvariantCulture) ?? "No serial number";
                 choices[index] = versionNumber + " : " + serialNumber;
             }
 

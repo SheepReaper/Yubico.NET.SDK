@@ -35,10 +35,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
             X500DistinguishedName distinguishedName,
             SamplePivSlotContents slotContents)
         {
-            if (slotContents is null)
-            {
-                throw new ArgumentNullException(nameof(slotContents));
-            }
+            ArgumentNullException.ThrowIfNull(slotContents);
 
             // Build the AsymmetricAlgorithm object from the public key.
             using AsymmetricAlgorithm dotNetPubKey = KeyConverter.GetDotNetFromPivPublicKey(slotContents.PublicKey);
@@ -147,14 +144,8 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
             SamplePivSlotContents signerSlotContents)
         {
             X509Certificate2 signerCert;
-            if (requestorSlotContents is null)
-            {
-                throw new ArgumentNullException(nameof(requestorSlotContents));
-            }
-            if (signerSlotContents is null)
-            {
-                throw new ArgumentNullException(nameof(signerSlotContents));
-            }
+            ArgumentNullException.ThrowIfNull(requestorSlotContents);
+            ArgumentNullException.ThrowIfNull(signerSlotContents);
 
             using (var pivSession = new PivSession(yubiKey))
             {
@@ -490,10 +481,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
         //     SampleCertificateOperations.GetPublicKeyFromCertificate(cert);
         public static AsymmetricAlgorithm GetPublicKeyFromCertificate(X509Certificate2 certificate)
         {
-            if (certificate is null)
-            {
-                throw new ArgumentNullException(nameof(certificate));
-            }
+            ArgumentNullException.ThrowIfNull(certificate);
 
             if (string.Equals(certificate.PublicKey.Oid.FriendlyName, "ECC", StringComparison.Ordinal))
             {

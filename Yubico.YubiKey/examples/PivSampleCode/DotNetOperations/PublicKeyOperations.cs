@@ -43,10 +43,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
             byte[] signature,
             out bool isVerified)
         {
-            if (publicKey is null)
-            {
-                throw new ArgumentNullException(nameof(publicKey));
-            }
+            ArgumentNullException.ThrowIfNull(publicKey);
 
             using AsymmetricAlgorithm asymObject = KeyConverter.GetDotNetFromPivPublicKey(publicKey);
 
@@ -87,10 +84,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
         {
             encryptedData = Array.Empty<byte>();
 
-            if (publicKey is null)
-            {
-                throw new ArgumentNullException(nameof(publicKey));
-            }
+            ArgumentNullException.ThrowIfNull(publicKey);
 
             if (!publicKey.Algorithm.IsRsa())
             {
@@ -124,10 +118,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
             correspondentPublicKey = Array.Empty<char>();
             sharedSecret = Array.Empty<byte>();
 
-            if (publicKey is null)
-            {
-                throw new ArgumentNullException(nameof(publicKey));
-            }
+            ArgumentNullException.ThrowIfNull(publicKey);
 
             if (!publicKey.Algorithm.IsEcc())
             {

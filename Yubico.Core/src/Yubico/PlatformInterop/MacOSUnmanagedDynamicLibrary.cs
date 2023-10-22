@@ -27,7 +27,7 @@ namespace Yubico.PlatformInterop
 
         }
 
-        private static SafeLibraryHandle OpenLibrary(string fileName)
+        private static SafeMacOSLibraryHandle OpenLibrary(string fileName)
         {
             SafeMacOSLibraryHandle handle = NativeMethods.mac_dlopen(fileName, NativeMethods.DlOpenFlags.Lazy);
             if (handle.IsInvalid)

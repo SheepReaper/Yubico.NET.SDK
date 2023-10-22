@@ -29,10 +29,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
         // hashAlgorithm.
         public static byte[] ComputeMessageDigest(byte[] dataToDigest, HashAlgorithmName hashAlgorithm)
         {
-            if (dataToDigest is null)
-            {
-                throw new ArgumentNullException(nameof(dataToDigest));
-            }
+            ArgumentNullException.ThrowIfNull(dataToDigest);
 
             // The CryptographyProviders class is in
             // Yubico.Authenticators.Cryptography. It is used to provide various

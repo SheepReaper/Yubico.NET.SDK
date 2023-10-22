@@ -24,6 +24,8 @@ namespace Yubico.Core.Buffers
     /// </summary>
     public static class MultiString
     {
+        static readonly char[] nullChar = ['\0'];
+
         /// <summary>
         /// Converts the byte array representing a multi-null-terminated string and return them as
         /// .NET strings.
@@ -40,7 +42,7 @@ namespace Yubico.Core.Buffers
 
             return encoding
                 .GetString(value)
-                .Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries);
+                .Split(nullChar, StringSplitOptions.RemoveEmptyEntries);
         }
 
         /// <summary>

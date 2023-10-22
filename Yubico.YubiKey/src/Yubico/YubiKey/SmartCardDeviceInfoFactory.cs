@@ -147,7 +147,7 @@ namespace Yubico.YubiKey
             try
             {
                 log.LogInformation("Attempting to read firmware version through the PIV application.");
-                using IYubiKeyConnection connection = new CcidConnection(device, YubiKeyApplication.Piv);
+                using var connection = new CcidConnection(device, YubiKeyApplication.Piv);
 
                 Piv.Commands.VersionResponse response = connection.SendCommand(new Piv.Commands.VersionCommand());
 
@@ -212,7 +212,7 @@ namespace Yubico.YubiKey
             try
             {
                 log.LogInformation("Attempting to read serial number through the PIV application.");
-                using IYubiKeyConnection connection = new CcidConnection(device, YubiKeyApplication.Piv);
+                using var connection = new CcidConnection(device, YubiKeyApplication.Piv);
 
                 Piv.Commands.GetSerialNumberResponse response = connection.SendCommand(new Piv.Commands.GetSerialNumberCommand());
 

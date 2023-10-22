@@ -211,7 +211,7 @@ namespace Yubico.PlatformInterop
             }
         }
 
-        private static IList<string> GetDevicePaths(Guid classGuid, string? deviceInstanceId)
+        private static string[] GetDevicePaths(Guid classGuid, string? deviceInstanceId)
         {
             CmErrorCode errorCode;
 

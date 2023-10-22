@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using Yubico.YubiKey.Fido2.Commands;
 using Yubico.Core.Logging;
+using System.Collections.ObjectModel;
 
 namespace Yubico.YubiKey.Fido2
 {
@@ -198,7 +199,7 @@ namespace Yubico.YubiKey.Fido2
             }
         }
 
-        private IReadOnlyList<GetAssertionData> CompleteGetAssertions(GetAssertionData getAssertionData)
+        private ReadOnlyCollection<GetAssertionData> CompleteGetAssertions(GetAssertionData getAssertionData)
         {
             int numberOfCredentials = getAssertionData.NumberOfCredentials ?? 1;
             var assertions = new List<GetAssertionData>(numberOfCredentials) { getAssertionData };
@@ -209,7 +210,7 @@ namespace Yubico.YubiKey.Fido2
                 assertions.Add(response.GetData());
             }
 
-            return assertions;
+            return assertions.AsReadOnly();
         }
     }
 }

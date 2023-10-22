@@ -55,10 +55,7 @@ namespace Yubico.YubiKey.Sample.U2fSampleCode
         // does not require a KeyCollector, this sample code does.
         public bool RunU2fReset(Func<KeyEntryData, bool> KeyCollector)
         {
-            if (KeyCollector is null)
-            {
-                throw new ArgumentNullException(nameof(KeyCollector));
-            }
+            ArgumentNullException.ThrowIfNull(KeyCollector);
 
             _yubiKeyDevice = null;
             var keyEntryData = new KeyEntryData();

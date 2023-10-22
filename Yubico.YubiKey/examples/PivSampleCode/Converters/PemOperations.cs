@@ -56,10 +56,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
         // the letters are upper case), nor does it check the encoding.
         public static char[] BuildPem(string title, byte[] encoding)
         {
-            if (encoding is null)
-            {
-                throw new ArgumentNullException(nameof(encoding));
-            }
+            ArgumentNullException.ThrowIfNull(encoding);
 
             char[] temp = Array.Empty<char>();
 
@@ -116,10 +113,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
         // The method will also check to verify the header and footer match.
         public static byte[] GetEncodingFromPem(char[] pemString, out string title)
         {
-            if (pemString is null)
-            {
-                throw new ArgumentNullException(nameof(pemString));
-            }
+            ArgumentNullException.ThrowIfNull(pemString);
 
             bool isValid = false;
             title = "";

@@ -115,7 +115,7 @@ namespace Yubico.YubiKey.Sample.Fido2SampleCode
             }
             else
             {
-                SampleMenu.WriteMessage(MessageType.Title, 0, serial.ToString() + " : version = " + versionNumber);
+                SampleMenu.WriteMessage(MessageType.Title, 0, serial.Value.ToString(CultureInfo.InvariantCulture) + " : version = " + versionNumber);
             }
 
             response = _menuObject.RunMenu("\nIs this correct?", menuItems);

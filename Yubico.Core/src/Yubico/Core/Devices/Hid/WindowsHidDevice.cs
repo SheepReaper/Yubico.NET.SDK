@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
+using Yubico.Core.Extensions;
 using Yubico.Core.Logging;
 using Yubico.PlatformInterop;
 
@@ -76,7 +77,7 @@ namespace Yubico.Core.Devices.Hid
             // 012345678901234567890123456789
             //             ^---     ^---
 
-            if (instancePath.ToUpperInvariant().Contains("VID") && instancePath.ToUpperInvariant().Contains("HID"))
+            if (instancePath.Contains("VID") && instancePath.Contains("HID"))
             {
                 // If this fails, vendorId will be 0.
                 _ = TryGetHexShort(instancePath, 12, 4, out ushort vendorId);

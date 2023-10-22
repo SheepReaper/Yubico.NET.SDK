@@ -41,10 +41,7 @@ namespace Yubico.YubiKey.Sample.OathSampleCode
             Credential credential,
             Func<KeyEntryData, bool> KeyCollectorDelegate)
         {
-            if (credential is null)
-            {
-                throw new ArgumentNullException(nameof(credential));
-            }
+            ArgumentNullException.ThrowIfNull(credential);
 
             using var oathSession = new OathSession(yubiKey);
             {

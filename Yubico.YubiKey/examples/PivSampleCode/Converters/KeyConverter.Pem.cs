@@ -169,10 +169,7 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
         // key, this method will throw an exception.
         public static char[] GetPemFromDotNet(AsymmetricAlgorithm dotNetObject, bool isPrivate)
         {
-            if (dotNetObject is null)
-            {
-                throw new ArgumentNullException(nameof(dotNetObject));
-            }
+            ArgumentNullException.ThrowIfNull(dotNetObject);
 
             byte[] encodedKey = Array.Empty<byte>();
             string title;

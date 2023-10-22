@@ -25,10 +25,7 @@ namespace Yubico.YubiKey.Sample.OathSampleCode
         // Choose credential type.
         public static bool RunChooseTypeOption(SampleMenu menuObject, out CredentialType? type)
         {
-            if (menuObject is null)
-            {
-                throw new ArgumentNullException(nameof(menuObject));
-            }
+            ArgumentNullException.ThrowIfNull(menuObject);
 
             type = null;
             // Write out a menu requesting the caller choose one.
@@ -49,10 +46,7 @@ namespace Yubico.YubiKey.Sample.OathSampleCode
         // Choose credential period.
         public static bool RunChoosePeriodOption(SampleMenu menuObject, out CredentialPeriod? period)
         {
-            if (menuObject is null)
-            {
-                throw new ArgumentNullException(nameof(menuObject));
-            }
+            ArgumentNullException.ThrowIfNull(menuObject);
 
             period = null;
             // Write out a menu requesting the caller choose one.
@@ -73,10 +67,7 @@ namespace Yubico.YubiKey.Sample.OathSampleCode
         // Choose credential algorithm.
         public static bool RunChooseAlgorithmOption(SampleMenu menuObject, out HashAlgorithm? algorithm)
         {
-            if (menuObject is null)
-            {
-                throw new ArgumentNullException(nameof(menuObject));
-            }
+            ArgumentNullException.ThrowIfNull(menuObject);
 
             algorithm = null;
 
@@ -98,10 +89,7 @@ namespace Yubico.YubiKey.Sample.OathSampleCode
         // Choose credential digits.
         public static bool RunChooseDigitsOption(SampleMenu menuObject, out int? digits)
         {
-            if (menuObject is null)
-            {
-                throw new ArgumentNullException(nameof(menuObject));
-            }
+            ArgumentNullException.ThrowIfNull(menuObject);
 
             digits = null;
             // Write out a menu requesting the caller choose one.

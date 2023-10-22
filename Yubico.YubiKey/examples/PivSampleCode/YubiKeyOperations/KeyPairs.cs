@@ -61,14 +61,8 @@ namespace Yubico.YubiKey.Sample.PivSampleCode
             PivTouchPolicy touchPolicy,
             out SamplePivSlotContents slotContents)
         {
-            if (privateKey is null)
-            {
-                throw new ArgumentNullException(nameof(privateKey));
-            }
-            if (publicKey is null)
-            {
-                throw new ArgumentNullException(nameof(publicKey));
-            }
+            ArgumentNullException.ThrowIfNull(privateKey);
+            ArgumentNullException.ThrowIfNull(publicKey);
 
             using (var pivSession = new PivSession(yubiKey))
             {

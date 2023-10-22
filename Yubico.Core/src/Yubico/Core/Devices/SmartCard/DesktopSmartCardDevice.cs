@@ -99,7 +99,7 @@ namespace Yubico.Core.Devices.SmartCard
             }
         }
 
-        private static ISmartCardDevice NewSmartCardDevice(string readerName, AnswerToReset? atr) =>
+        private static DesktopSmartCardDevice NewSmartCardDevice(string readerName, AnswerToReset? atr) =>
             SdkPlatformInfo.OperatingSystem switch
             {
                 SdkPlatform.Windows => new DesktopSmartCardDevice(readerName, atr),

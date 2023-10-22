@@ -51,6 +51,9 @@ limitations under the License. -->
     <AssemblyOriginatorKeyFile>..\..\Yubico.NET.SDK.snk</AssemblyOriginatorKeyFile>
 
     <DefineConstants Condition="'$(Configuration)' == 'Debug'">$(DefineConstants);ENABLE_SENSITIVE_LOG</DefineConstants>
+
+    <!-- Language Features -->
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">

@@ -37,10 +37,7 @@ namespace Yubico.YubiKey.Sample.OathSampleCode
         {
             chosenCredential = null;
 
-            if (menuObject is null)
-            {
-                throw new ArgumentNullException(nameof(menuObject));
-            }
+            ArgumentNullException.ThrowIfNull(menuObject);
 
             using var oathSession = new OathSession(yubiKey);
             {
@@ -83,10 +80,8 @@ namespace Yubico.YubiKey.Sample.OathSampleCode
         // Return true if the method succeeds, false otherwise.
         public static bool RunChooseAddCredentialOption(SampleMenu menuObject, out int? index)
         {
-            if (menuObject is null)
-            {
-                throw new ArgumentNullException(nameof(menuObject));
-            }
+
+            ArgumentNullException.ThrowIfNull(menuObject);
 
             index = null;
             // Write out a menu requesting the caller choose one.
@@ -112,10 +107,7 @@ namespace Yubico.YubiKey.Sample.OathSampleCode
         // Return true if the method succeeds, false otherwise.
         public static bool RunChooseCredentialOption(SampleMenu menuObject, out int? index)
         {
-            if (menuObject is null)
-            {
-                throw new ArgumentNullException(nameof(menuObject));
-            }
+            ArgumentNullException.ThrowIfNull(menuObject);
 
             index = null;
             // Write out a menu requesting the caller choose one.
@@ -144,10 +136,7 @@ namespace Yubico.YubiKey.Sample.OathSampleCode
         // Return true if the method succeeds, false otherwise.
         public static bool RunChooseAction(SampleMenu menuObject, out int? index, string name)
         {
-            if (menuObject is null)
-            {
-                throw new ArgumentNullException(nameof(menuObject));
-            }
+            ArgumentNullException.ThrowIfNull(menuObject);
 
             index = null;
             // Write out a menu requesting the caller choose one.

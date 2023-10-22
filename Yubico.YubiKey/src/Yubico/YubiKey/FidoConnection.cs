@@ -20,7 +20,7 @@ namespace Yubico.YubiKey
 {
     internal class FidoConnection : IYubiKeyConnection, ICancelConnection
     {
-        private readonly IApduTransform _apduPipeline;
+        private readonly FidoTransform _apduPipeline;
         private readonly IHidConnection _fidoConnection;
         private bool _disposedValue;
 
