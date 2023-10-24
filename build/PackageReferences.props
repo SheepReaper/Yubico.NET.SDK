@@ -37,7 +37,7 @@ take effect across all (or specialized subsets) of projects.
 
     <!-- Coverlet collector for code coverage analysis -->
     <PackageReference Include="coverlet.collector"
-                      Version="3.0.2"
+                      Version="6.0.0"
                       PrivateAssets="all"
                       IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
 
