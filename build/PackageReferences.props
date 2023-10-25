@@ -42,7 +42,7 @@ take effect across all (or specialized subsets) of projects.
                       IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
 
     <!-- Moq: A mocking framework for unit testing -->
-    <PackageReference Include="Moq" Version="4.16.1" />
+    <PackageReference Include="Moq" Version="4.20.69" />
 
   </ItemGroup>
 
