@@ -29,9 +29,9 @@ take effect across all (or specialized subsets) of projects.
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
 
     <!-- xUnit and the Visual Studio xUnit test adapter -->
-    <PackageReference Include="xunit" Version="2.6.1" />
+    <PackageReference Include="xunit" Version="2.6.2" />
     <PackageReference Include="xunit.runner.visualstudio"
-                      Version="2.5.3"
+                      Version="2.5.4"
                       PrivateAssets="all"
                       IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
 
