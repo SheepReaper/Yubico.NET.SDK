@@ -69,7 +69,7 @@ namespace Yubico.YubiKey.U2f.Commands
             var command = new VerifyFipsModeCommand();
             CommandApdu commandApdu = command.CreateCommandApdu();
 
-            Assert.Equal(commandApdu.Nc, lengthHeader);
+            Assert.Equal(lengthHeader, commandApdu.Nc);
         }
 
         [Fact]
@@ -146,7 +146,7 @@ namespace Yubico.YubiKey.U2f.Commands
         {
             var responseApdu = new ResponseApdu(new byte[] { 0x90, 0x00 });
             var command = new VerifyFipsModeCommand();
-            var response = command.CreateResponseForApdu(responseApdu);
+            VerifyFipsModeResponse response = command.CreateResponseForApdu(responseApdu);
 
             _ = Assert.IsType<VerifyFipsModeResponse>(response);
         }
