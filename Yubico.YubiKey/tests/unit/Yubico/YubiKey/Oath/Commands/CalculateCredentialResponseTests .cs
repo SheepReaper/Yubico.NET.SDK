@@ -77,10 +77,10 @@ namespace Yubico.YubiKey.Oath.Commands
 
             var calculateCredentialResponse = new CalculateCredentialResponse(responseApdu, credential);
 
-            var data = calculateCredentialResponse.GetData();
+            Code data = calculateCredentialResponse.GetData();
 
             Assert.Equal(SWConstants.Success, calculateCredentialResponse.StatusWord);
-            Assert.NotEmpty(data.Value);
+            Assert.False(string.IsNullOrEmpty(data.Value));
         }
 
         [Fact]
@@ -95,10 +95,10 @@ namespace Yubico.YubiKey.Oath.Commands
 
             var calculateCredentialResponse = new CalculateCredentialResponse(responseApdu, credential);
 
-            var data = calculateCredentialResponse.GetData();
+            Code data = calculateCredentialResponse.GetData();
 
             Assert.Equal(SWConstants.Success, calculateCredentialResponse.StatusWord);
-            Assert.NotEmpty(data.Value);
+            Assert.False(string.IsNullOrEmpty(data.Value));
         }
 
         [Fact]
