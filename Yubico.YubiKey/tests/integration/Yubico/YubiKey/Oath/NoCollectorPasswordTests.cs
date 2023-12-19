@@ -45,7 +45,7 @@ namespace Yubico.YubiKey.Oath
                 Assert.False(oathSession.IsPasswordProtected);
 
                 IList<Credential> credentialList = oathSession.GetCredentials();
-                Assert.Equal(1, credentialList.Count);
+                Assert.Single(credentialList);
 
                 Credential cred = credentialList[0];
                 Assert.NotNull(cred.Algorithm);
@@ -65,7 +65,7 @@ namespace Yubico.YubiKey.Oath
                 Assert.True(oathSession.IsPasswordProtected);
 
                 IList<Credential> credentialList = oathSession.GetCredentials();
-                Assert.Equal(1, credentialList.Count);
+                Assert.Single(credentialList);
             }
 
             using (var oathSession = new OathSession(yubiKeyDevice))
@@ -84,7 +84,7 @@ namespace Yubico.YubiKey.Oath
                 Assert.True(isVerified);
 
                 IList<Credential> credentialList = oathSession.GetCredentials();
-                Assert.Equal(1, credentialList.Count);
+                Assert.Single(credentialList);
 
                 Credential cred = credentialList[0];
                 Assert.NotNull(cred.Algorithm);
@@ -121,7 +121,7 @@ namespace Yubico.YubiKey.Oath
                 Assert.False(isSet);
 
                 IList<Credential> credentialList = oathSession.GetCredentials();
-                Assert.Equal(1, credentialList.Count);
+                Assert.Single(credentialList);
             }
 
             using (var oathSession = new OathSession(yubiKeyDevice))
@@ -138,7 +138,7 @@ namespace Yubico.YubiKey.Oath
                 Assert.False(isSet);
 
                 IList<Credential> credentialList = oathSession.GetCredentials();
-                Assert.Equal(1, credentialList.Count);
+                Assert.Single(credentialList);
 
                 oathSession.ResetApplication();
             }
@@ -184,13 +184,13 @@ namespace Yubico.YubiKey.Oath
                 Assert.False(oathSession.IsPasswordProtected);
 
                 IList<Credential> credentialList = oathSession.GetCredentials();
-                Assert.Equal(1, credentialList.Count);
+                Assert.Single(credentialList);
             }
 
             using (var oathSession = new OathSession(yubiKeyDevice))
             {
                 IList<Credential> credentialList = oathSession.GetCredentials();
-                Assert.Equal(1, credentialList.Count);
+                Assert.Single(credentialList);
 
                 Credential cred = credentialList[0];
                 Assert.NotNull(cred.Algorithm);
@@ -295,13 +295,13 @@ namespace Yubico.YubiKey.Oath
                 Assert.False(oathSession.IsPasswordProtected);
 
                 IList<Credential> credentialList = oathSession.GetCredentials();
-                Assert.Equal(1, credentialList.Count);
+                Assert.Single(credentialList);
             }
 
             using (var oathSession = new OathSession(yubiKeyDevice))
             {
                 IList<Credential> credentialList = oathSession.GetCredentials();
-                Assert.Equal(1, credentialList.Count);
+                Assert.Single(credentialList);
 
                 Credential cred = credentialList[0];
                 Assert.NotNull(cred.Algorithm);
@@ -340,7 +340,7 @@ namespace Yubico.YubiKey.Oath
                 Assert.False(oathSession.IsPasswordProtected);
 
                 IList<Credential> credentialList = oathSession.GetCredentials();
-                Assert.Equal(1, credentialList.Count);
+                Assert.Single(credentialList);
 
                 oathSession.ResetApplication();
             }
