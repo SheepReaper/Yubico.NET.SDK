@@ -26,7 +26,7 @@ take effect across all (or specialized subsets) of projects.
   <ItemGroup Label="Unit test project references" Condition="'$(IsTestProject)'=='true'">
 
     <!-- Support package for .NET test projects -->
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
 
     <!-- xUnit and the Visual Studio xUnit test adapter -->
     <PackageReference Include="xunit" Version="2.6.6" />
