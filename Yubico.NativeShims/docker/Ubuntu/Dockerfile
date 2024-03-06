@@ -1,7 +1,7 @@
 # We use Bionic as the basis for our image. Bionic is the last Ubuntu long-term support
 # release that is both still supported and still supports i386 processors. Once Bionic
 # leaves support, we can consider upgrading to the next LTS release.
-FROM ubuntu:jammy@sha256:f9d633ff6640178c2d0525017174a688e2c1aef28f0a0130b26bd5554491f0da AS env
+FROM ubuntu:jammy@sha256:77906da86b60585ce12215807090eb327e7386c8fafb5402369e421f44eff17e AS env
 
 # These arguments are passed in from the console or by Docker-CLI itself. User/Group ID
 # is used to run the shell as the host's user identity. Artifact_dir should be set to
