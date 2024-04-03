@@ -44,7 +44,7 @@ jobs:
 
     steps:
       # Checkout the local repository
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
 
       - name: Add local NuGet repository
         run: dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Yubico/index.json"
@@ -70,13 +70,13 @@ jobs:
       # Upload artifacts
 
       - name: Save documentation artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
         with:
           name: Documentation
           path: Yubico.YubiKey/docs/_site/
 
       - name: Save build artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
         with:
           name: Nuget Packages
           path: |
@@ -85,7 +85,7 @@ jobs:
             Yubico.YubiKey/src/bin/ReleaseWithDocs/*.nupkg
 
       - name: Save build artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
         with:
           name: Assemblies
           path: |
@@ -95,7 +95,7 @@ jobs:
 
       # Package the OATH sample code source
       - name: Save build artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
         with:
           name: OATH Sample Code
           path: |
@@ -104,7 +104,7 @@ jobs:
 
       # Package the PIV sample code source
       - name: Save build artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
         with:
           name: PIV Sample Code
           path: |
@@ -143,10 +143,10 @@ jobs:
 
     steps:
       # Checkout the local repository as we need the Dockerfile and other things even for this step.
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
 
       # Grab the just-built documentation artifact and inflate the archive at the expected location.
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@cbed621e49e4c01b044d60f6c80ea4ed6328b281 # v2
         with:
           name: Documentation
           path: Yubico.YubiKey/docs/_site/
@@ -157,7 +157,7 @@ jobs:
           docker build -t "${IMAGE_NAME}:${{ github.sha }}" .
 
       # Connect to our GCloud instance
-      - uses: google-github-actions/setup-gcloud@v0
+      - uses: google-github-actions/setup-gcloud@20c93dacc1d70ddbce76c63ab32c35595345bdd1 # v0
         with:
           service_account_key: ${{ secrets.IMAGE_REPO_GCP_SA_KEY }}
 
@@ -177,7 +177,7 @@ jobs:
     environment: Internal NuGet feed
     if: ${{ github.event.inputs.push-to-dev }}
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
         id: download
         with:
           name: Nuget Packages
