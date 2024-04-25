@@ -40,7 +40,7 @@ jobs:
     # Even though we build for multiple platforms, we only need to run
     # on a single host operating system. This is because we utilize cross-
     # build functionality of the dotnet build system.
-    runs-on: windows-2019
+    runs-on: windows-2022
 
     steps:
       # Checkout the local repository
@@ -172,7 +172,7 @@ jobs:
 
   publish-internal:
     name: Publish to internal NuGet
-    runs-on: windows-2019
+    runs-on: windows-2022
     needs: build
     environment: Internal NuGet feed
     if: ${{ github.event.inputs.push-to-dev }}
