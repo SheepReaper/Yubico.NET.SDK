@@ -32,7 +32,7 @@ jobs:
     name: Build Windows
     runs-on: windows-2022
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
       - run: |
           cd Yubico.NativeShims
           ./build-windows.cmd
@@ -61,7 +61,7 @@ jobs:
     name: Build Ubuntu
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
       - run: |
           cd Yubico.NativeShims
           sh ./build-ubuntu.sh
@@ -82,7 +82,7 @@ jobs:
     name: Build macOS
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
       - run: |
           cd Yubico.NativeShims
           sh ./build-macOS.sh
