@@ -70,13 +70,13 @@ jobs:
       # Upload artifacts
 
       - name: Save documentation artifacts
-        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: Documentation
           path: Yubico.YubiKey/docs/_site/
 
       - name: Save build artifacts
-        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: Nuget Packages
           path: |
@@ -85,7 +85,7 @@ jobs:
             Yubico.YubiKey/src/bin/ReleaseWithDocs/*.nupkg
 
       - name: Save build artifacts
-        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: Assemblies
           path: |
@@ -95,7 +95,7 @@ jobs:
 
       # Package the OATH sample code source
       - name: Save build artifacts
-        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: OATH Sample Code
           path: |
@@ -104,7 +104,7 @@ jobs:
 
       # Package the PIV sample code source
       - name: Save build artifacts
-        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: PIV Sample Code
           path: |
@@ -146,7 +146,7 @@ jobs:
       - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
 
       # Grab the just-built documentation artifact and inflate the archive at the expected location.
-      - uses: actions/download-artifact@cbed621e49e4c01b044d60f6c80ea4ed6328b281 # v2
+      - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4
         with:
           name: Documentation
           path: Yubico.YubiKey/docs/_site/
@@ -177,7 +177,7 @@ jobs:
     environment: Internal NuGet feed
     if: ${{ github.event.inputs.push-to-dev }}
     steps:
-      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
+      - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4
         id: download
         with:
           name: Nuget Packages

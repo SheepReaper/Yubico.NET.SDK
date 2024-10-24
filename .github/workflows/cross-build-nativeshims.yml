@@ -36,23 +36,23 @@ jobs:
       - run: |
           cd Yubico.NativeShims
           ./build-windows.cmd
-      - uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
+      - uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: win-x64
           path: Yubico.NativeShims/win-x64/**
-      - uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
+      - uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: win-x86
           path: Yubico.NativeShims/win-x86/**
-      - uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
+      - uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: win-arm64
           path: Yubico.NativeShims/win-arm64/**
-      - uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
+      - uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: nuspec
           path: Yubico.NativeShims/*.nuspec
-      - uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
+      - uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: msbuild
           path: Yubico.NativeShims/msbuild/*
@@ -65,15 +65,15 @@ jobs:
       - run: |
           cd Yubico.NativeShims
           sh ./build-ubuntu.sh
-      - uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
+      - uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: ubuntu-x64
           path: Yubico.NativeShims/ubuntu-x64/**
-      - uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
+      - uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: ubuntu-x86
           path: Yubico.NativeShims/ubuntu-x86/**
-      - uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
+      - uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: ubuntu-arm64
           path: Yubico.NativeShims/ubuntu-arm64/**
@@ -86,11 +86,11 @@ jobs:
       - run: |
           cd Yubico.NativeShims
           sh ./build-macOS.sh
-      - uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
+      - uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: osx-x64
           path: Yubico.NativeShims/osx-x64/**
-      - uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
+      - uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: osx-arm64
           path: Yubico.NativeShims/osx-arm64/**
@@ -100,7 +100,7 @@ jobs:
     runs-on: windows-2022
     needs: [build-windows, build-ubuntu, build-macos]
     steps:
-      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
+      - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4
       - run: |
           mv nuspec/*.nuspec .
           del nuspec
@@ -113,7 +113,7 @@ jobs:
           $nuspec.Save("Yubico.NativeShims.nuspec")
           cat Yubico.NativeShims.nuspec
       - run: nuget pack Yubico.NativeShims.nuspec
-      - uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
+      - uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: Yubico.NativeShims.nupkg
           path: Yubico.NativeShims.*.nupkg
@@ -125,7 +125,7 @@ jobs:
     environment: Internal NuGet feed
     if: ${{ github.event.inputs.push-to-dev == 'true' }}
     steps:
-      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
+      - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4
         with:
           name: Yubico.NativeShims.nupkg
       - run: |
